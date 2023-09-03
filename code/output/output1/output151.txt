@@ -1,0 +1,11 @@
+INICIO
+ENTRADA:15
+n:100
+dataset:1
+busqueda:galopante-dif_tam-pos100
+valor_buscado:100
+id_busqueda:15
+ENCONTRADO:100
+AJTES:
+100,2
+DESPUES:

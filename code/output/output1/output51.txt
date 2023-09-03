@@ -1,0 +1,11 @@
+INICIO
+ENTRADA:5
+n:100
+dataset:1
+busqueda:binaria-dif_tam-pos25
+valor_buscado:25
+id_busqueda:5
+ENCONTRADO:25
+AJTES:
+100,3
+DESPUES:

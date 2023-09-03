@@ -1,8 +1,4 @@
-#include <iostream>
-#include <algorithm>
 #include <chrono>
-#include <fstream>
-#include <string.h>
 #include "busquedas.h"
 #include <fstream>
 
@@ -11,43 +7,128 @@ using namespace std;
 int main(int argv, char* argc[]) {
   srand(time(NULL)); 
 
-  int n;
+  long n;
   string dir_csv;
   string busqueda_seleccionada;
   int id_busqueda_seleccionada;
   string nombre_archivo_salida;
+  int valor_buscado;
 
   cout<<"INICIO"<<endl;
 
+  cout<<"ENTRADA:" + to_string(atoi(argc[1])) <<endl;
+
+
   //TIPOS DE PRUEBAS
-  switch(atoi(argc[1])){
-    case 1: busqueda_seleccionada = "secuencial"; break;
-    case 2: busqueda_seleccionada = "binaria"; break;
-    case 3: busqueda_seleccionada = "galopante"; break;
-    case 4: busqueda_seleccionada = "secuencial"; break;
-    case 5: busqueda_seleccionada = "binaria"; break;
-    case 6: busqueda_seleccionada = "galopante"; break;
+  switch(atoi(argc[1]))
+  {
+
+    case 1: busqueda_seleccionada = "secuencial-dif_tam-pos0"; break;
+    case 2: busqueda_seleccionada = "binaria-dif_tam-pos0"; break;
+    case 3: busqueda_seleccionada = "galopante-dif_tam-pos0"; break;
+
+    case 4: busqueda_seleccionada = "secuencial-dif_tam-pos25"; break;
+    case 5: busqueda_seleccionada = "binaria-dif_tam-pos25"; break;
+    case 6: busqueda_seleccionada = "galopante-dif_tam-pos25"; break;
+
+    case 7: busqueda_seleccionada = "secuencial-dif_tam-pos50"; break;
+    case 8: busqueda_seleccionada = "binaria-dif_tam-pos50"; break;
+    case 9: busqueda_seleccionada = "galopante-dif_tam-pos50"; break;
+
+    case 10: busqueda_seleccionada = "secuencial-dif_tam-pos75"; break;
+    case 11: busqueda_seleccionada = "binaria-dif_tam-pos75"; break;
+    case 12: busqueda_seleccionada = "galopante-dif_tam-pos75"; break;
+
+    case 13: busqueda_seleccionada = "secuencial-dif_tam-pos100"; break;
+    case 14: busqueda_seleccionada = "binaria-dif_tam-pos100"; break;
+    case 15: busqueda_seleccionada = "galopante-dif_tam-pos100"; break;
+
+    case 16: busqueda_seleccionada = "secuencial-dif_pos-tam100000"; break;
+    case 17: busqueda_seleccionada = "binaria-dif_pos-tam100000"; break;
+    case 18: busqueda_seleccionada = "galopante-dif_pos-tam100000"; break;
 
     default: busqueda_seleccionada = ""; break;
   }
 
   //DEFINE DIRECTORIO DE CSV
-  dir_csv = "csv/csv" + to_string(atoi(argc[3]))+ "/";
+  dir_csv = "csv/";
 
-  //SI ENTRA CON PARÁMETROS, REALIZA EL TEST
-  if((argv > 2) && (strcmp(argc[2],"--test") == 0)){
+  //SI VIENE CON PARÁMETRO "head" entonces solamente crea la cabecera del archivo CSV
+  if((strcmp(argc[2],"--head") == 0))
+  {
+    nombre_archivo_salida = dir_csv + busqueda_seleccionada + "_results.csv";
+    ofstream outfile(nombre_archivo_salida);
+    outfile << "n,tiempo[ms]\n";
 
+    return 0;
+  }
+  else
+  {
     //LEE EL TAMAÑO DEL VECTOR
     cin>>n;
 
+    cout<<"n:" + to_string(n) <<endl;
+
+    cout<<"dataset:" + to_string(atoi(argc[3])) <<endl;
+
+
+    switch(atoi(argc[1]))
+    {
+      case 1:
+      case 2:
+      case 3: valor_buscado=1; break;
+
+      case 4: 
+      case 5: 
+      case 6: valor_buscado=floor(n*25/100); break;
+
+      case 7: 
+      case 8: 
+      case 9: valor_buscado=floor(n*50/100); break;
+
+      case 10: 
+      case 11: 
+      case 12: valor_buscado=floor(n*75/100); break;
+
+      case 13: 
+      case 14: 
+      case 15: valor_buscado=n; break;
+
+      case 16: 
+      case 17: 
+      case 18:
+          switch ( atoi(argc[3]))
+          {
+          case 1: valor_buscado=1; break;
+          case 2: valor_buscado=floor(n*25/100); break;
+          case 3: valor_buscado=floor(n*50/100); break;
+          case 4: valor_buscado=floor(n*75/100); break;
+          case 5: valor_buscado=n; break;
+
+          default:
+            break;
+          }
+        break;
+
+      default: busqueda_seleccionada = 1; break;
+    }
+
+    cout<<"busqueda:" + busqueda_seleccionada <<endl;
+    cout<<"valor_buscado:" + to_string(valor_buscado) <<endl;
+
+
     //BUSQUEDA SELECCIONADA COMO PARAMETRO
-    id_busqueda_seleccionada = atoi(argc[3]);
+    id_busqueda_seleccionada = atoi(argc[1]);
+    cout<<"id_busqueda:" + to_string(id_busqueda_seleccionada) <<endl;
 
     //DEFINE MATRICES DE ENTRADA
-    vector<int> M_A(n);   //MATRIZ A
+    vector<int> A(n);   //VECTOR A
 
     //LEE VECTOR
-    read_vector(M_A);
+    for(auto &row : A)
+      {
+          cin>>row;
+      }
     
     nombre_archivo_salida = dir_csv + busqueda_seleccionada + "_results.csv";
     ofstream outfile(nombre_archivo_salida,std::ios::app);
@@ -56,25 +137,40 @@ int main(int argv, char* argc[]) {
     int numero_de_experimentos=1;
     for(int j = 0; j < numero_de_experimentos; j++){ 
       
-      long long single_execution_time = execution_time_ms(M_A, id_busqueda_seleccionada);
+      long long single_execution_time = execution_time_ms(A, valor_buscado, id_busqueda_seleccionada);
       
       mm_total_time += single_execution_time;
     }
     double mm_avg_time = mm_total_time / numero_de_experimentos;
+
+
+    cout<<"AJTES:" <<endl;
+
+
+    //PARA EL CASO DE DISTINTAS POSICIONES SE DEBE CAMBIAR EL RÓTULO DE n
+    switch (atoi(argc[1]))
+    {
+    case 16:
+    case 17:
+    case 18:
+      n=valor_buscado;
+      break;
+    
+    default:
+      break;
+    }
+
+    cout << n << "," << mm_avg_time <<endl;
+
+    cout<<"DESPUES:" <<endl;
+
+
     outfile << n << "," << mm_avg_time <<endl;
     outfile.close(); 
     
     return 0;
   }
-  else
-  //SINO CREA EL ENCABEZADO PARA GUARDAR EL CSV
-  {
-    nombre_archivo_salida = dir_csv + busqueda_seleccionada + "_results.csv";
-    ofstream outfile(nombre_archivo_salida);
-    outfile << "n,tiempo[ms]\n";
 
-    return 0;
-  }
 
 
 }

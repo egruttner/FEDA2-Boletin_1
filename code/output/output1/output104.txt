@@ -1,0 +1,11 @@
+INICIO
+ENTRADA:10
+n:100000
+dataset:1
+busqueda:secuencial-dif_tam-pos75
+valor_buscado:75000
+id_busqueda:10
+ENCONTRADO:75000 ENCONTRADO EN POSICION: 74999
+AJTES:
+100000,41
+DESPUES:

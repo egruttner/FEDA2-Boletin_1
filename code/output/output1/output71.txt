@@ -1,0 +1,11 @@
+INICIO
+ENTRADA:7
+n:100
+dataset:1
+busqueda:secuencial-dif_tam-pos50
+valor_buscado:50
+id_busqueda:7
+ENCONTRADO:50 ENCONTRADO EN POSICION: 49
+AJTES:
+100,3
+DESPUES:

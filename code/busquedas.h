@@ -1,25 +1,23 @@
 #include <iostream>
 #include <vector>
-#include <functional>
 
 using namespace std;
-const int valor_buscado = 1110;
 
 //BUSQUEDA SECUENCIAL
-void secuencial(const vector<int> &A) 
+void secuencial(const vector<int> &A, int valor_buscado) 
 {
     for (int i = 0; i < A.size(); ++i) {
 
         if (A[i] == valor_buscado) 
         {
-            cout<<"VALOR:" + to_string(valor_buscado) + " ENCONTRADO EN POSICION: " + to_string(i) <<endl;
+            cout<<"ENCONTRADO:" + to_string(valor_buscado) + " ENCONTRADO EN POSICION: " + to_string(i) <<endl;
             break;
         }
     }
 
 }
 
-void binaria(const vector<int> &A)
+void binaria(const vector<int> &A, int valor_buscado)
 {
     int izquierda = 0;
     int derecha = A.size() - 1;
@@ -28,7 +26,7 @@ void binaria(const vector<int> &A)
         int medio = izquierda + (derecha - izquierda) / 2;
 
         if (A[medio] == valor_buscado) {
-            cout<<"VALOR:" + to_string(valor_buscado) <<endl;//ENCONTRADO
+            cout<<"ENCONTRADO:" + to_string(valor_buscado) <<endl;//ENCONTRADO
             break;
         } else if (A[medio] < valor_buscado) {
             izquierda = medio + 1;  // El elemento está en la mitad derecha
@@ -39,14 +37,14 @@ void binaria(const vector<int> &A)
 }
 
 
-void galopante(const vector<int> &A)
+void galopante(const vector<int> &A, int valor_buscado)
 {
     int tamano = A.size();
     int paso = sqrt(tamano);
     int previo = 0;
 
     // Realiza saltos hasta encontrar un intervalo que contenga el objetivo
-    while (A[std::min(paso, tamano) - 1] < valor_buscado) {
+    while (A[min(paso, tamano) - 1] < valor_buscado) {
         previo = paso;
         paso += std::sqrt(tamano);
         if (previo >= tamano) {
@@ -55,7 +53,7 @@ void galopante(const vector<int> &A)
     }
 
     // Realiza una búsqueda secuencial en el intervalo actual
-    for (int i = previo; i < std::min(paso, tamano); ++i) {
+    for (int i = previo; i < min(paso, tamano); ++i) {
         if (A[i] == valor_buscado) {
             cout<<"ENCONTRADO:" + to_string(valor_buscado) <<endl;//ENCONTRADO
         }
@@ -66,23 +64,35 @@ void galopante(const vector<int> &A)
 
 
 //PARA TOMAR EL TIEMPO
-long long execution_time_ms(const vector<int> &A, int id_busqueda_seleccionada) {
+long long execution_time_ms(const vector<int> &A, int valor_buscado, int id_busqueda_seleccionada) {
   auto start_time = std::chrono::high_resolution_clock::now();
   
     switch (id_busqueda_seleccionada)
     {
     case 1:
-        secuencial(A);
-    case 2:
-        binaria(A);
-    case 3:
-        galopante(A);
     case 4:
-        secuencial(A);
+    case 7:
+    case 10:
+    case 13:
+    case 16:
+        secuencial(A,valor_buscado);
+        break;
+    case 2:
     case 5:
-        binaria(A);
+    case 8:
+    case 11:
+    case 14:
+    case 17:
+        binaria(A,valor_buscado);
+        break;
+    case 3:
     case 6:
-        galopante(A);
+    case 9:
+    case 12:
+    case 15:  
+    case 18:         
+        galopante(A,valor_buscado);
+        break;
 
     default:
         break;
@@ -91,15 +101,6 @@ long long execution_time_ms(const vector<int> &A, int id_busqueda_seleccionada) 
   auto end_time = std::chrono::high_resolution_clock::now();
   return std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time).count();
 }
-
-//LEER VECTOR DESDE INPUT
-void read_vector(vector<int> &M){
-  for(auto &row : M)
-    {
-        cin>>row;
-    }
-}
-
 
 
         

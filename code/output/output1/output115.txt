@@ -1,0 +1,11 @@
+INICIO
+ENTRADA:11
+n:1000000
+dataset:1
+busqueda:binaria-dif_tam-pos75
+valor_buscado:750000
+id_busqueda:11
+ENCONTRADO:750000
+AJTES:
+1000000,15
+DESPUES:

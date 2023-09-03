@@ -1,0 +1,11 @@
+INICIO
+ENTRADA:8
+n:1000000
+dataset:1
+busqueda:binaria-dif_tam-pos50
+valor_buscado:500000
+id_busqueda:8
+ENCONTRADO:500000
+AJTES:
+1000000,20
+DESPUES:

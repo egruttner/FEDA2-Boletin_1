@@ -1,0 +1,11 @@
+INICIO
+ENTRADA:13
+n:10000
+dataset:1
+busqueda:secuencial-dif_tam-pos100
+valor_buscado:10000
+id_busqueda:13
+ENCONTRADO:10000 ENCONTRADO EN POSICION: 9999
+AJTES:
+10000,28
+DESPUES:
