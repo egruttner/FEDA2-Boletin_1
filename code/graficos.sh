@@ -48,3 +48,7 @@ csv/binaria-dif_pos-tam100000_results.csv \
 csv/galopante-dif_pos-tam100000_results.csv \
 Secuencial Binaria Galopante "Búsqueda - Mismo Tamaño Vs Posición" "% Ubicación Elemento" "Tiempo[ms]"
 
+python3 plot_dos.py \
+csv/binaria-dif_pos-tam100000_results.csv \
+csv/galopante-dif_pos-tam100000_results.csv \
+Binaria Galopante "Binaria Vs Galopante - Mismo Tamaño Vs Posición" "% Ubicación Elemento" "Tiempo[ms]"

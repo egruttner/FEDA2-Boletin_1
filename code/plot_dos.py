@@ -5,13 +5,13 @@ import sys
 data1 = pd.read_csv(sys.argv[1])
 data2 = pd.read_csv(sys.argv[2])
 
-label1 = sys.argv[4]
-label2 = sys.argv[5]
+label1 = sys.argv[3]
+label2 = sys.argv[4]
 
-title = sys.argv[6]
+title = sys.argv[5]
 
-label_x = sys.argv[7]
-label_y = sys.argv[8]
+label_x = sys.argv[6]
+label_y = sys.argv[7]
 
 x1 = data1['n'].values
 y1 = data1['tiempo[ms]'].values
