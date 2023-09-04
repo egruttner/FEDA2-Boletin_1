@@ -103,5 +103,3 @@ long long execution_time_ms(const vector<int> &A, int valor_buscado, int id_busq
   return std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time).count();
 }
 
-
-        

@@ -7,9 +7,7 @@ OBJS = $(SRCS:.cpp=.o)
 TEST_CASES_NUMBER := $(shell seq 1 5) #rango de archivos de input y output
 
 # Experimentos con posición fija, cambio de tamaño
-#RANGE_1 = 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
-
-RANGE_1 = 
+RANGE_1 = 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
 
 # Experimentos con cambio de posición y tamaño fijo
 RANGE_2 = 16 17 18 
