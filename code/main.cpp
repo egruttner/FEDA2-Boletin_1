@@ -13,6 +13,7 @@ int main(int argv, char* argc[]) {
   int id_busqueda_seleccionada;
   string nombre_archivo_salida;
   int valor_buscado;
+  int porcentaje;
 
   cout<<"INICIO"<<endl;
 
@@ -68,7 +69,7 @@ int main(int argv, char* argc[]) {
     {
       case 1:
       case 2:
-      case 3: valor_buscado=floor(n*10/100); break;
+      case 3: valor_buscado=floor(n*10/100);break;
 
       case 4: 
       case 5: 
@@ -91,18 +92,18 @@ int main(int argv, char* argc[]) {
       case 18:
           switch ( atoi(argc[3]))
           {
-          case 1: valor_buscado=floor(n*10/100); break;
-          case 2: valor_buscado=floor(n*25/100); break;
-          case 3: valor_buscado=floor(n*50/100); break;
-          case 4: valor_buscado=floor(n*75/100); break;
-          case 5: valor_buscado=n; break;
+          case 1: valor_buscado=floor(n*10/100); porcentaje = 10; break;
+          case 2: valor_buscado=floor(n*25/100); porcentaje = 25; break;
+          case 3: valor_buscado=floor(n*50/100); porcentaje = 50; break;
+          case 4: valor_buscado=floor(n*75/100); porcentaje = 75; break;
+          case 5: valor_buscado=n; porcentaje = 100; break;
 
           default:
             break;
           }
           break;
 
-      default: busqueda_seleccionada = 2; break;
+      default: busqueda_seleccionada = floor(n*10/100); porcentaje = 10; break;
     }
 
     //BUSQUEDA SELECCIONADA COMO PARAMETRO
@@ -138,7 +139,7 @@ int main(int argv, char* argc[]) {
     case 16:
     case 17:
     case 18:
-      n=valor_buscado;
+      n=porcentaje;
       break;
     
     default:

@@ -12,6 +12,10 @@ label3 = sys.argv[6]
 
 title = sys.argv[7]
 
+label_x = sys.argv[8]
+label_y = sys.argv[9]
+
+
 x1 = data1['n'].values
 y1 = data1['tiempo[ms]'].values
 
@@ -28,8 +32,10 @@ plt.legend()
 plt.plot(x3, y3, label=label3)
 plt.legend()
 
-plt.xlabel('n')
-plt.ylabel('tiempo[ms]')
+plt.ticklabel_format(style='plain') #DESACTIVA NOTACIÓN CIENTÍFICA
+
+plt.xlabel(label_x)
+plt.ylabel(label_y)
 
 plt.title(title)
 

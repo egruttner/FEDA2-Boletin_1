@@ -48,7 +48,7 @@ void galopante(const vector<int> &A, int valor_buscado)
         previo = paso;
         paso += sqrt(tamano);
         if (previo >= tamano) {
-            cout<<"NO ENCONTRADO VALOR:" + to_string(valor_buscado) <<endl;
+            cout<<"VALOR NO ENCONTRADO:" + to_string(valor_buscado) <<endl;
         }
 
     }

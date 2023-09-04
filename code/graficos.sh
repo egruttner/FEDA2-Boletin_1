@@ -4,46 +4,47 @@ python3 plot_tres.py \
 csv/secuencial-dif_tam-pos0_results.csv \
 csv/binaria-dif_tam-pos0_results.csv \
 csv/galopante-dif_tam-pos0_results.csv \
-Secuencial Binaria Galopante "Búsqueda - Elemento inicio del archivo"
+Secuencial Binaria Galopante "Búsqueda - Elemento ubicado en el 10% del archivo" "Tamaño muestra" "Tiempo[ms]"
 
 python3 plot_tres.py \
 csv/secuencial-dif_tam-pos25_results.csv \
 csv/binaria-dif_tam-pos25_results.csv \
 csv/galopante-dif_tam-pos25_results.csv \
-Secuencial Binaria Galopante "Búsqueda - Elemento ubicado en el 25% del archivo"
+Secuencial Binaria Galopante "Búsqueda - Elemento ubicado en el 25% del archivo" "Tamaño muestra" "Tiempo[ms]"
 
 python3 plot_tres.py \
 csv/secuencial-dif_tam-pos50_results.csv \
 csv/binaria-dif_tam-pos50_results.csv \
 csv/galopante-dif_tam-pos50_results.csv \
-Secuencial Binaria Galopante "Búsqueda - Elemento ubicado en el 50% del archivo"
+Secuencial Binaria Galopante "Búsqueda - Elemento ubicado en el 50% del archivo" "Tamaño muestra" "Tiempo[ms]"
 
 python3 plot_tres.py \
 csv/secuencial-dif_tam-pos75_results.csv \
 csv/binaria-dif_tam-pos75_results.csv \
 csv/galopante-dif_tam-pos75_results.csv \
-Secuencial Binaria Galopante "Búsqueda - Elemento ubicado en el 75% del archivo"
+Secuencial Binaria Galopante "Búsqueda - Elemento ubicado en el 75% del archivo" "Tamaño muestra" "Tiempo[ms]"
 
 python3 plot_tres.py \
 csv/secuencial-dif_tam-pos100_results.csv \
 csv/binaria-dif_tam-pos100_results.csv \
 csv/galopante-dif_tam-pos100_results.csv \
-Secuencial Binaria Galopante "Búsqueda - Elemento ubicado al final del archivo"
+Secuencial Binaria Galopante "Búsqueda - Elemento ubicado al final del archivo" "Tamaño muestra" "Tiempo[ms]"
 
 python3 plot.py \
 csv/secuencial-dif_pos-tam100000_results.csv \
-Secuencial "Búsqueda secuencial cambiando posición - Tamaño fijo"
+Secuencial "Búsqueda secuencial cambiando posición - Tamaño fijo" "Tamaño muestra" "Tiempo[ms]"
 
 python3 plot.py \
 csv/binaria-dif_pos-tam100000_results.csv \
-Binaria "Búsqueda binaria cambiando posición - Tamaño fijo"
+Binaria "Búsqueda binaria cambiando posición - Tamaño fijo" "Tamaño muestra" "Tiempo[ms]"
 
 python3 plot.py \
 csv/galopante-dif_pos-tam100000_results.csv \
-Galopante "Búsqueda galopante cambiando posición - Tamaño fijo"
+Galopante "Búsqueda galopante cambiando posición - Tamaño fijo" "Tamaño muestra" "Tiempo[ms]"
 
 python3 plot_tres.py \
 csv/secuencial-dif_pos-tam100000_results.csv \
 csv/binaria-dif_pos-tam100000_results.csv \
 csv/galopante-dif_pos-tam100000_results.csv \
-Secuencial Binaria Galopante "Búsqueda - Mismo Tamaño Vs Posición"
+Secuencial Binaria Galopante "Búsqueda - Mismo Tamaño Vs Posición" "% Ubicación Elemento" "Tiempo[ms]"
+
