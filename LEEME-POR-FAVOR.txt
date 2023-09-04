@@ -2,7 +2,7 @@ Hola! Gracias por leerme!
 Para probar el código, se debe ejecutar el archivo Bash "start.sh"
 Se realizarán 18 experimentos, de 5 líneas cada uno
 Esta ejecución actualizará la información en los directorios CSV y output
-Finalmente se generán y guardarán los gráficos asociados en la carpeta "graficos", en la raíz
+Finalmente se generan y guardarán los gráficos asociados en la carpeta "graficos", en la raíz
 
 En la carpeta doc se encuentra el documento en versión Docx y PDF
 
