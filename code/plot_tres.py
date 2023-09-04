@@ -35,6 +35,6 @@ plt.title(title)
 
 plt.grid()
 
-plt.show()
-#plt.savefig('./graficos/' + title + '.png')
+#plt.show()
+plt.savefig('../graficos/' + title + '.png')
 

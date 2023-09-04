@@ -16,9 +16,6 @@ int main(int argv, char* argc[]) {
 
   cout<<"INICIO"<<endl;
 
-  cout<<"ENTRADA:" + to_string(atoi(argc[1])) <<endl;
-
-
   //TIPOS DE PRUEBAS
   switch(atoi(argc[1]))
   {
@@ -67,16 +64,11 @@ int main(int argv, char* argc[]) {
     //LEE EL TAMAÑO DEL VECTOR
     cin>>n;
 
-    cout<<"n:" + to_string(n) <<endl;
-
-    cout<<"dataset:" + to_string(atoi(argc[3])) <<endl;
-
-
     switch(atoi(argc[1]))
     {
       case 1:
       case 2:
-      case 3: valor_buscado=1; break;
+      case 3: valor_buscado=floor(n*10/100); break;
 
       case 4: 
       case 5: 
@@ -99,7 +91,7 @@ int main(int argv, char* argc[]) {
       case 18:
           switch ( atoi(argc[3]))
           {
-          case 1: valor_buscado=1; break;
+          case 1: valor_buscado=floor(n*10/100); break;
           case 2: valor_buscado=floor(n*25/100); break;
           case 3: valor_buscado=floor(n*50/100); break;
           case 4: valor_buscado=floor(n*75/100); break;
@@ -108,18 +100,13 @@ int main(int argv, char* argc[]) {
           default:
             break;
           }
-        break;
+          break;
 
-      default: busqueda_seleccionada = 1; break;
+      default: busqueda_seleccionada = 2; break;
     }
-
-    cout<<"busqueda:" + busqueda_seleccionada <<endl;
-    cout<<"valor_buscado:" + to_string(valor_buscado) <<endl;
-
 
     //BUSQUEDA SELECCIONADA COMO PARAMETRO
     id_busqueda_seleccionada = atoi(argc[1]);
-    cout<<"id_busqueda:" + to_string(id_busqueda_seleccionada) <<endl;
 
     //DEFINE MATRICES DE ENTRADA
     vector<int> A(n);   //VECTOR A
@@ -134,7 +121,7 @@ int main(int argv, char* argc[]) {
     ofstream outfile(nombre_archivo_salida,std::ios::app);
 
     double mm_total_time = 0;
-    int numero_de_experimentos=1;
+    int numero_de_experimentos=30;
     for(int j = 0; j < numero_de_experimentos; j++){ 
       
       long long single_execution_time = execution_time_ms(A, valor_buscado, id_busqueda_seleccionada);
@@ -143,8 +130,6 @@ int main(int argv, char* argc[]) {
     }
     double mm_avg_time = mm_total_time / numero_de_experimentos;
 
-
-    cout<<"AJTES:" <<endl;
 
 
     //PARA EL CASO DE DISTINTAS POSICIONES SE DEBE CAMBIAR EL RÓTULO DE n
@@ -159,11 +144,6 @@ int main(int argv, char* argc[]) {
     default:
       break;
     }
-
-    cout << n << "," << mm_avg_time <<endl;
-
-    cout<<"DESPUES:" <<endl;
-
 
     outfile << n << "," << mm_avg_time <<endl;
     outfile.close(); 

@@ -6,11 +6,12 @@ OBJS = $(SRCS:.cpp=.o)
 
 TEST_CASES_NUMBER := $(shell seq 1 5) #rango de archivos de input y output
 
-RANGE_1 = 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15#distintos búsquedas a probar
-#RANGE_1 = #distintos búsquedas a probar
-RANGE_2 = 16 17 18#distintos búsquedas a probar
+# Experimentos con posición fija, cambio de tamaño
+RANGE_1 = 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+# Experimentos con cambio de posición y tamaño fijo
+RANGE_2 = 16 17 18 
 
-# -> DIFERENTES TAMAÑOS - UBICACIÓN 0%
+# -> DIFERENTES TAMAÑOS - UBICACIÓN 10%
 # 1 SECUENCIAL
 # 2 BINARIA
 # 3 GALOPANTE
@@ -46,7 +47,6 @@ INPUT_PREFIX := datasets/input$(num_dataset)/input
 OUTPUT_PREFIX := output/output$(num_dataset)/output
 
 all: program
-
 	for j in $(RANGE_1); do \
 		echo "Crea cabecera en CSV"; \
 		./program $$j --head $$num_dataset; \
@@ -64,7 +64,6 @@ all: program
 			./program $$j --pruebas $$i < $(INPUT_PREFIX)4.txt > $(OUTPUT_PREFIX)$$j$$i.txt; \
 		done; \
 	done
-
 
 program: $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o program

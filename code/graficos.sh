@@ -32,15 +32,15 @@ Secuencial Binaria Galopante "Búsqueda - Elemento ubicado al final del archivo"
 
 python3 plot.py \
 csv/secuencial-dif_pos-tam100000_results.csv \
-Secuencial "Búsqueda - Elemento inicio del archivo"
+Secuencial "Búsqueda secuencial cambiando posición - Tamaño fijo"
 
 python3 plot.py \
 csv/binaria-dif_pos-tam100000_results.csv \
-Binaria "Búsqueda - Elemento inicio del archivo"
+Binaria "Búsqueda binaria cambiando posición - Tamaño fijo"
 
 python3 plot.py \
 csv/galopante-dif_pos-tam100000_results.csv \
-Galopante "Búsqueda - Elemento inicio del archivo"
+Galopante "Búsqueda galopante cambiando posición - Tamaño fijo"
 
 python3 plot_tres.py \
 csv/secuencial-dif_pos-tam100000_results.csv \

@@ -7,10 +7,9 @@ using namespace std;
 void secuencial(const vector<int> &A, int valor_buscado) 
 {
     for (int i = 0; i < A.size(); ++i) {
-
         if (A[i] == valor_buscado) 
         {
-            cout<<"ENCONTRADO:" + to_string(valor_buscado) + " ENCONTRADO EN POSICION: " + to_string(i) <<endl;
+            cout<<"ENCONTRADO:" + to_string(valor_buscado) <<endl;//ENCONTRADO
             break;
         }
     }
@@ -33,6 +32,7 @@ void binaria(const vector<int> &A, int valor_buscado)
         } else {
             derecha = medio - 1;  // El elemento está en la mitad izquierda
         }
+
     }
 }
 
@@ -46,16 +46,17 @@ void galopante(const vector<int> &A, int valor_buscado)
     // Realiza saltos hasta encontrar un intervalo que contenga el objetivo
     while (A[min(paso, tamano) - 1] < valor_buscado) {
         previo = paso;
-        paso += std::sqrt(tamano);
+        paso += sqrt(tamano);
         if (previo >= tamano) {
-            cout<<"NO ENCONTRADO VALOR:" + to_string(valor_buscado) <<endl;//ENCONTRADO
+            cout<<"NO ENCONTRADO VALOR:" + to_string(valor_buscado) <<endl;
         }
+
     }
 
     // Realiza una búsqueda secuencial en el intervalo actual
     for (int i = previo; i < min(paso, tamano); ++i) {
         if (A[i] == valor_buscado) {
-            cout<<"ENCONTRADO:" + to_string(valor_buscado) <<endl;//ENCONTRADO
+            cout<<"ENCONTRADO:" + to_string(valor_buscado) <<endl;
         }
     }
 
